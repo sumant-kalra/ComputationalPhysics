@@ -5,3 +5,5 @@
 *.ali
 
 BookContents/
+build-release/
+build-debug/
