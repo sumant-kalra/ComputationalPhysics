@@ -7,3 +7,5 @@
 BookContents/
 build-release/
 build-debug/
+.DS_Store
+
