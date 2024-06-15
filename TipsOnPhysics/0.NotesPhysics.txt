@@ -1,4 +1,0 @@
-* Differentiation by dispatch:
-    Given f = k . u^a . v^b . w^c ..., where k = constant and u,v,w are some functions of t 
-    df/dt = f . [ a.(du/dt)/u + b.(dv/dt)/v + c.(dw/dt)/w + ...  ]
-
