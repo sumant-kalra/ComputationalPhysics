@@ -5,7 +5,8 @@
 *.ali
 
 BookContents/
-build-release/
-build-debug/
+build/
+build/
+temp/
 .DS_Store
 
