@@ -2,6 +2,7 @@
 #include <cassert>
 #include <string>
 #include <cmath>
+#include <fstream>
 #include "Circle.h"
 
 kinematics::Circle1::Circle1() : m_isInitialized(false) {}
@@ -63,6 +64,36 @@ void kinematics::Circle1::initialize()
 void kinematics::Circle1::compute()
 {
     assert(m_isInitialized);
+
+    double t = m_t0;
+    double x, y, vx, vy, ax, ay, theta;
+    x = y = vx = vy = ax = ay = theta = UINITIALIZED;
+
+    std::ofstream outputFile("Circle1.out");
+    if (!outputFile.is_open())
+    {
+        std::cerr << "Failed to open the output file.\n";
+        exit(-1);
+    }
+
+    outputFile << "t theta x y vx vy ax ay\n";
+
+    while (t <= m_tf)
+    {
+        theta = m_w * (t - m_t0);
+        x = m_xc + m_r * cos(theta);
+        y = m_yc + m_r * sin(theta);
+        vx = -1 * m_r * m_w * sin(theta);
+        vy = m_r * m_w * cos(theta);
+        ax = -1 * pow(m_w, 2) * m_r * cos(theta);
+        ay = -1 * pow(m_w, 2) * m_r * sin(theta);
+
+        outputFile << t << " " << theta << " " << x << " " << y << " " << vx << " " << vy << " " << ax << " " << ay << '\n';
+
+        t += m_dt;
+    }
+
+    outputFile.close();
 
     m_acc = pow(m_w, 2) * m_r;
     std::cout << "\n# Outputs:\n";

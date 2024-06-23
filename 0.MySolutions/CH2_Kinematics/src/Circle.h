@@ -1,6 +1,8 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
+#define UINITIALIZED -99999
+
 namespace kinematics
 {
     class Circle1
