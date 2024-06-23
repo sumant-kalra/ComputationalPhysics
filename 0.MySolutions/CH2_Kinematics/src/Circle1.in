@@ -1,0 +1,3 @@
+0.1 1 1     # R(m) Xc(m) Yc(m)
+1           # w(rad/s)
+0 10 0.5    # T0(s) Tf(s) dt(s) 

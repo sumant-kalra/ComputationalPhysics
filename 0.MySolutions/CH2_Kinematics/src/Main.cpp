@@ -1,8 +1,8 @@
-#include <iostream>
-
 #if MPI_APP == 1
 #include <mpi.h>
 #endif
+
+#include "Circle.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,7 +14,8 @@ int main(int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 #endif
 
-    std::cout << "Hello, Sumant Kalra!\n";
+    kinematics::Circle1 myCircle;
+    myCircle.run();
 
 #if MPI_APP == 1
     MPI_Finalize();
