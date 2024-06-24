@@ -10,17 +10,40 @@ kinematics::Circle1::~Circle1() {}
 
 void kinematics::Circle1::run()
 {
-    //[0] Taking user inputs
-    userInputs();
+    try
+    {
+        //[0] Taking user inputs
+        userInputs();
 
-    //[1] Inform users about the inputs
-    printInputs();
+        //[1] Inform users about the inputs
+        printInputs();
 
-    //[2] Initialization and sanity checks
-    initialize();
+        //[2] Initialization and sanity checks
+        initialize();
 
-    //[3] Compute the results and output to file
-    compute();
+        //[3] Compute the results and output to file
+        compute();
+    }
+    catch (std::invalid_argument &e)
+    {
+        std::cerr << "Error while opening the file: " << e.what() << '\n';
+        exit(-4);
+    }
+    catch (std::ios_base::failure &e)
+    {
+        std::cerr << "Error in writing to the file: " << e.what() << '\n';
+        exit(-3);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << '\n';
+        exit(-2);
+    }
+    catch (...)
+    {
+        std::cerr << "Unknown exception!\n";
+        exit(-1);
+    }
 }
 
 void kinematics::Circle1::userInputs()
@@ -69,12 +92,12 @@ void kinematics::Circle1::compute()
     double x, y, vx, vy, ax, ay, theta;
     x = y = vx = vy = ax = ay = theta = UINITIALIZED;
 
-    std::ofstream outputFile("Circle1.out");
+    std::string outFileName("Circle1.out");
+
+    std::ofstream outputFile(outFileName.c_str());
+    outputFile.exceptions(std::ios_base::failbit | std::ios_base::badbit);
     if (!outputFile.is_open())
-    {
-        std::cerr << "Failed to open the output file.\n";
-        exit(-1);
-    }
+        throw std::invalid_argument(("Failed to open the file: " + outFileName).c_str());
 
     outputFile << "t theta x y vx vy ax ay\n";
 
