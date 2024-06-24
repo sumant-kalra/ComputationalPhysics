@@ -89,8 +89,8 @@ void kinematics::Circle1::compute()
     assert(m_isInitialized);
 
     double t = m_t0;
-    double x, y, vx, vy, ax, ay, theta;
-    x = y = vx = vy = ax = ay = theta = UINITIALIZED;
+    double x, y, vx, vy, ax, ay, theta, theta_deg;
+    x = y = vx = vy = ax = ay = theta = theta_deg = UINITIALIZED;
 
     std::string outFileName("Circle1.out");
 
@@ -99,7 +99,7 @@ void kinematics::Circle1::compute()
     if (!outputFile.is_open())
         throw std::invalid_argument(("Failed to open the file: " + outFileName).c_str());
 
-    outputFile << "t theta x y vx vy ax ay\n";
+    outputFile << "t x y vx vy ax ay theta_deg\n";
 
     while (t <= m_tf)
     {
@@ -110,8 +110,9 @@ void kinematics::Circle1::compute()
         vy = m_r * m_w * cos(theta);
         ax = -1 * pow(m_w, 2) * m_r * cos(theta);
         ay = -1 * pow(m_w, 2) * m_r * sin(theta);
+        theta_deg = atan((y - m_yc) / (x - m_xc)) * 180 / PI;
 
-        outputFile << t << " " << theta << " " << x << " " << y << " " << vx << " " << vy << " " << ax << " " << ay << '\n';
+        outputFile << t << " " << x << " " << y << " " << vx << " " << vy << " " << ax << " " << ay << " " << theta_deg << '\n';
 
         t += m_dt;
     }
