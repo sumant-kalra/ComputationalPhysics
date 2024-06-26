@@ -1,0 +1,4 @@
+# London_Eye.out
+# Commands to run in gnuplot 
+file="London_Eye.out"; t0=0; tf=18000; dt=10; set xrange [-80:80]; set yrange [-80:80]
+load "animate2D"

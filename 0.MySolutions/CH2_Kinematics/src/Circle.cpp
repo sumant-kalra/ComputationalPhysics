@@ -69,7 +69,7 @@ void kinematics::Circle1::printInputs()
 {
     std::cout << "\n# Your simulation inputs are:\n";
     std::cout << "R(m): " << m_r << '\n';
-    std::cout << "Xc(m), Yc(m): (" << m_xc << ", " << m_yc << ")\n";
+    std::cout << "Xc(m),Yc(m): (" << m_xc << "," << m_yc << ")\n";
     std::cout << "W(rad/s): " << m_w << '\n';
     std::cout << "T0(s): " << m_t0 << ", Tf(s): " << m_tf << ", dt(s): " << m_dt << '\n';
     assert(m_r > 0);

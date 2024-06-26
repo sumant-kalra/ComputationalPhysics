@@ -1,0 +1,4 @@
+# Circle1.out
+# Commands to run in gnuplot 
+file="Circle1.out"; t0=0; tf=315360000; dt=86400; set xrange [-1.5e11:1.5e11]; set yrange [-1.5e11:1.5e11]
+load "animate2D"
