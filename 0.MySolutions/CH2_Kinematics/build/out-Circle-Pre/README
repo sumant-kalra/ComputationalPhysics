@@ -9,3 +9,5 @@ plot "Circle1.out" using 1:2 with lines title "x(t)"; replot "Circle1.out" using
 plot "Circle1.out" using 1:4 with lines title "vx(t)"; replot "Circle1.out" using 1:5 with lines title "vy(t)"
 
 plot "Circle1.out" using 1:6 with lines title "ax(t)"; replot "Circle1.out" using 1:7 with lines title "ay(t)"
+
+plot "Circle1.out" using 1:8 with lines title "theta(t)"
