@@ -7,10 +7,11 @@ Dependencies:
 3. GnuPlot
 
 Directory structure of the solutions:
-- 0.MySolutions
-|---- ChapterN
-        |---- Makefile      # generates the binaries using the code in src & install in build directory
-        |---- build         # contains the binaries generated from the code in src file
-        |---- src           # contains the source code as classes corresponding to each of the problems; 
-                            # Main.cpp contains the main() function that creates an object of the problem's class;
-                            # run() API of the class executes the actual program.
+0.MySolutions
+    - ChapterN
+        - Makefile  # generates the binaries using the code in src & install in build directory
+        - build/    # contains the binaries generated from the code in src file
+        - src/      # contains the source code as classes corresponding to each of the problems; 
+                    # Main.cpp contains the main() function that creates an object of the problem's class;
+                    # run() API of the class executes the actual program.
+    
