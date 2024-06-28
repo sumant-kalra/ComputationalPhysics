@@ -13,16 +13,16 @@ void kinematics::Circle1::run()
     try
     {
         //[0] Taking user inputs
-        userInputs();
+        this->userInputs();
 
         //[1] Inform users about the inputs
-        printInputs();
+        this->printInputs();
 
         //[2] Initialization and sanity checks
-        initialize();
+        this->initialize();
 
         //[3] Compute the results and output to file
-        compute();
+        this->compute();
     }
     catch (std::invalid_argument &e)
     {
