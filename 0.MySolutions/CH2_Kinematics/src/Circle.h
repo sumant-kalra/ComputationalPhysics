@@ -1,18 +1,15 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#define UINITIALIZED -99999
-#define PI (atan(1) * 4)
+#include "Kinematics.h"
 
 namespace kinematics
 {
-    class Circle1
+    class Circle1 : public Kinematics
     {
     public:
         Circle1();
-        ~Circle1();
-
-        void run();
+        ~Circle1() = default;
 
     private:
         // Circular path's attributes
@@ -31,10 +28,10 @@ namespace kinematics
 
         bool m_isInitialized;
 
-        void userInputs();
-        void printInputs();
-        void initialize();
-        void compute();
+        virtual void userInputs() override;
+        virtual void printInputs() override;
+        virtual void initialize() override;
+        virtual void compute() override;
     };
 }
 
