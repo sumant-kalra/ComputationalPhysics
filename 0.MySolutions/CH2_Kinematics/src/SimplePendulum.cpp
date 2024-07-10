@@ -3,6 +3,7 @@
 #include <cassert>
 #include <cmath>
 #include <string>
+#include <fstream>
 
 using namespace kinematics;
 
@@ -44,5 +45,39 @@ void SimplePendulum::initialize()
 void SimplePendulum::compute()
 {
     assert(m_isInitialized);
-    std::cout << "W(rad/s): " << m_w << '\n';
+
+    std::ofstream outFile("SimplePendulum.out");
+    if (!outFile.is_open())
+        throw std::invalid_argument("Failed to open the file - SimplePendulum.out");
+
+    outFile.exceptions(std::ios_base::failbit | std::ios_base::badbit);
+
+    m_w = sqrt(g / m_l);
+    std::cout << "W(Hz): " << m_w << '\n';
+    double theta, thetaD, thetaDD;
+    double x, y, vx, vy, ax, ay;
+    theta = thetaD = thetaDD = x = y = vx = vy = ax = ay = 0.0;
+
+    outFile << "t x y vx vy ax ay theta_deg\n";
+
+    double t = m_t0;
+    while (t <= m_tf)
+    {
+        theta = m_theta0 * cos(m_w * (t - m_t0));
+        thetaD = -1 * m_theta0 * m_w * sin(m_w * (t - m_t0));
+        thetaDD = -1 * pow(m_w, 2) * m_theta0 * cos(m_w * (t - m_t0));
+
+        x = m_l * sin(theta);
+        y = -1 * m_l * cos(theta);
+        vx = m_l * thetaD * cos(theta);
+        vy = m_l * thetaD * sin(theta);
+        ax = m_l * (thetaDD * cos(theta) - sin(theta) * pow(thetaD, 2));
+        ay = m_l * (thetaDD * sin(theta) + cos(theta) * pow(thetaD, 2));
+
+        outFile << t << ' ' << x << ' ' << y << ' ' << vx << ' ' << vy << ' ' << ax << ' ' << ay << ' ' << theta * 180 / PI << '\n';
+
+        t += m_dt;
+    }
+
+    outFile.close();
 }

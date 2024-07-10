@@ -1,0 +1,5 @@
+# SimplePendulum.out 
+# Commands to run in gnuplot 
+file1 = "SimplePendulumL1.0.out"; file2 = "SimplePendulumL0.75.out"; file3 = "SimplePendulumL0.50.out"; file4 = "SimplePendulumL0.25.out"; file5 = "SimplePendulumL0.9.out"; file6 = "SimplePendulumL0.8.out"; file7 = "SimplePendulumL0.7.out"; file8 = "SimplePendulumL0.6.out"; file9 = "SimplePendulumL0.4.out"; file10 = "SimplePendulumL0.3.out" 
+t0=0; tf=20.0; dt=0.01; set xrange  [-0.6:0.6]; set yrange [-1.1:0.1] 
+load "animate2D.gnu"
