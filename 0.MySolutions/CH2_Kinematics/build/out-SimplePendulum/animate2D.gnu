@@ -6,14 +6,13 @@
 # gnuplot> set xrange [-10:10];set yrange [-10:10]
 # gnuplot> load "animate2D.gnu"
 
-
 set macros
 set size square
-#plot 0 with lines lw 0 lc rgb '#FFFFFF'
 # -----------------------------
 
 t0 = t0 + dt 
 
+plot 0 with dots lw 0 lc rgb '#FFFFFF'
 command1 = "awk -v t=".sprintf("%f",t0)." '$1<t{print $2}' ".file1."|tail -n 1"
 x1 = `@command1`
 command1 = "awk -v t=".sprintf("%f",t0)." '$1<t{print $3}' ".file1."|tail -n 1"
@@ -104,21 +103,7 @@ set arrow 21 from x10,(y10-0.05) to x10,y10 lw 3 lc rgb '#90EE90'
 plot file10 \
  using 2:($1<= t0 ? $3: 1/0) with lines lw 0 lc rgb '#000000' notitle
 
-
-
-
-
-
-
-
-
-
-
-
 if(t0<tf) reread
-
-
-
 
 
 #  ---------------------------------------------------------------------
