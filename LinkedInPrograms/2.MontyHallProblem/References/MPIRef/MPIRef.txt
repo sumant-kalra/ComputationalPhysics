@@ -1,2 +1,0 @@
-MPI Learning resources: https://cvw.cac.cornell.edu/roadmaps 
-MPI specification: https://www.mpi-forum.org/docs/ 
