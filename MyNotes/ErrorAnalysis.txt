@@ -29,7 +29,7 @@ Refer to the book: 'Numerical Methods by Balaguruswamy' for details on each topi
     - Establish the accuracy of the final results.
        1. Solve with multiple analytical/numerical procedures.
        2. Stability analysis of each procedure.
-       3. Convergence check: Increase the number of iterations.
+       3. Convergence check: Increase the number of iterations. Note: Increasing nIter, decreases truncation errot but increases rounding-off errors; Minimize the total error.
        4. Backward Error analysis / Residual check: Substitute the result back into the original equations
        5. Forward Error analysis: Estimating the errors from each source and step to predict the error in the final result.  
 
@@ -38,3 +38,9 @@ Refer to the book: 'Numerical Methods by Balaguruswamy' for details on each topi
         - Rounding-off, Truncation, Propagation of errors, Human errors: Multiple procedures for the same problem.
         - Discretization errors: Convergence check.
         - Modelling errors: Improving the mathematical models 
+    
+    - Tips to reduce the total error: 
+        - Increasing the significant digits of the computer; double precision instead of float 
+        - Minimize the number of arithmetic operations 
+        - Avoid subtractive calculations; Catastrophic cancellation
+        - Choosing proper initial parameters
