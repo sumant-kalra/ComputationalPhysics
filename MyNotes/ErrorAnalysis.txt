@@ -1,0 +1,40 @@
+Errors, Error Analysis & Stability
+----------------------------------------------------------------------------------
+Refer to the book: 'Numerical Methods by Balaguruswamy' for details on each topic
+----------------------------------------------------------------------------------
+
+* ERRORS: 
+    - Introduced at every step of numerical computing; Inevitable; Identify the sources & handle the errors.
+    - Types of Errors: 
+        - Measurement errors: Measurements of quantity; Every measurement has an associated error, hence represented as range.  
+        - Rounding-off errors: Numbers input & storage into computing machines; representing floating point numbers using limited bits.
+        - Truncation errors: Numerical process; Infinite series represented using limited terms.
+        - Modelling errors: Numerical process; Assumptions & approximations in modelling.
+        - Discretization errors: Numerical process; Continous quantities represented as discrete quanties.
+        - Propagation of errors: Numerical process; Accumulation of different errors in the final result.
+        - Human errors: Human in the loop; Blunders.
+
+* STABILITY OF AN ALGORITHM:
+    - Sensitivity of algorithm: Change in output with change in input; Unstable if small changes in input lead to large changes in output.
+    - Condition number (k): Quantifies the sensitivity of the algorithm.
+        - k = RelativeChange(output) / RelativeChange(input)
+        - k<=1 : Well-conditioned (stable)
+          k>1  : Ill-conditioned (unstable)
+    - Measures the effects of different errors on the output. 
+    - Usage across applications: 
+        (a) Root finding problem, f(x) = 0: k = (deltaY/Y)/(deltaX/X) 
+        (b) Linear algebra problems, [A]{x} = {b}: k = ||A||.||A^-1||  
+
+* ERROR ANALYSIS:
+    - Establish the accuracy of the final results.
+       1. Solve with multiple analytical/numerical procedures.
+       2. Stability analysis of each procedure.
+       3. Convergence check: Increase the number of iterations.
+       4. Backward Error analysis / Residual check: Substitute the result back into the original equations
+       5. Forward Error analysis: Estimating the errors from each source and step to predict the error in the final result.  
+
+    - The above steps take care of the following errors:   
+        - Measurement errors: Obtain the output range for the given input range; Ok, if stable.
+        - Rounding-off, Truncation, Propagation of errors, Human errors: Multiple procedures for the same problem.
+        - Discretization errors: Convergence check.
+        - Modelling errors: Improving the mathematical models 
