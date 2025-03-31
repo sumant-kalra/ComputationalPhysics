@@ -1,8 +1,30 @@
 Errors, Error Analysis & Stability
 ----------------------------------------------------------------------------------
-Refer to the book: 'Numerical Methods by Balaguruswamy' for details on each topic
+References: 
+    - 'Numerical Methods by Balaguruswamy' for details on each topic
+    - https://www.youtube.com/playlist?list=PLnWQ_pnPVzmJnp794rQXIcwJIjwy7Nb2U 
+----------------------------------------------------------------------------------
+3. ErrorAnalysis: Convergence&Accuracy? MachineEpsilon; RoundOffVsTruncation; CatastrophicCancellation
+2. StabilityOfAlgorithm
+1. TypesOfErrors 
 ----------------------------------------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------
 * ERRORS: 
     - Introduced at every step of numerical computing; Inevitable; Identify the sources & handle the errors.
     - Types of Errors: 
@@ -25,22 +47,44 @@ Refer to the book: 'Numerical Methods by Balaguruswamy' for details on each topi
         (a) Root finding problem, f(x) = 0: k = (deltaY/Y)/(deltaX/X) 
         (b) Linear algebra problems, [A]{x} = {b}: k = ||A||.||A^-1||  
 
-* ERROR ANALYSIS:
-    - Establish the accuracy of the final results.
-       1. Solve with multiple analytical/numerical procedures.
-       2. Stability analysis of each procedure.
-       3. Convergence check: Increase the number of iterations. Note: Increasing nIter, decreases truncation errot but increases rounding-off errors; Minimize the total error.
-       4. Backward Error analysis / Residual check: Substitute the result back into the original equations
-       5. Forward Error analysis: Estimating the errors from each source and step to predict the error in the final result.  
+3. ERROR ANALYSIS: 
+    * Establish the accuracy of the algorithm:
+        1. Does the algorithm converge? Convergence to a single value with increase in number of iterations.
+        2. Stability of the algorithm
+        3. How accurate is the algorithm: Plot the RelativeError vs NumberOfIterations on (log10-log10 scale).
+            - Finding relative error => Finding the actual value?
+                - Analytical approaches; Use other methods for the same problem.
+                - Plot the Result vs NumberOfIterations: N => convergence, use the value at (2N) as the actual value.  
+        4. Backward Error analysis / Residual check: Substitute the result back into the original equations
+        5. Forward Error analysis: Estimating the errors from each source and step to predict the error in the final result.  
 
-    - The above steps take care of the following errors:   
+    * Machine Epsilon (erM): The maximum relative error in the floating point computations; Dependent on machine.
+        - 1.0 + erM > 1.0; the smallest number that should be added to 1; erM = absolute value; (find by code; float: 1e-8; double: 1e-16)
+        - n_m = n_a(1+-erM); n_m = the number as stored in computer, n_a = actual value; Generally n_a is unknown, so use n_m to find the absolute error. 
+        - DO NOT confuse it with the smallest number represented in floating point system 
+        - Overflow: +Inf (the values greater than the largest floating point number representable)
+        - Underflow: -Inf (the values smaller than the smallest floating point number representable)
+
+    * Round-off error vs Truncation error:
+        1. Truncation error: erT = a/N^b; (erT = Relative error during truncation; a,b = constants (determined from graphs); N = number of iterations)
+        2. Round-off error: erR = sqrtN*erM (from Random Walks); After N steps, The least error = 0; The maximum error = N.erM; Average error = sqrtN*erM
+        3. Total error: er = erT + erR 
+            - as N increases => erT decreases, erR increases; erT decreases faster than erR increases 
+            - the minimum error occurs for N, where erT = erR
+
+    * Catastrophic Cancellation:
+        - n1-n2; Relative error increases drastically when n1~=n2
+        - Propagates extensively in multiplication & division operations 
+
+    * Tips to reduce the total error: 
+        - Increasing the significant digits of the computer; double precision instead of float 
+        - Minimize the number of arithmetic operations 
+        - Avoid subtractive calculations; Catastrophic cancellation
+        - Choosing proper initial parameters
+    
+    * The above steps take care of the following errors:   
         - Measurement errors: Obtain the output range for the given input range; Ok, if stable.
         - Rounding-off, Truncation, Propagation of errors, Human errors: Multiple procedures for the same problem.
         - Discretization errors: Convergence check.
         - Modelling errors: Improving the mathematical models 
     
-    - Tips to reduce the total error: 
-        - Increasing the significant digits of the computer; double precision instead of float 
-        - Minimize the number of arithmetic operations 
-        - Avoid subtractive calculations; Catastrophic cancellation
-        - Choosing proper initial parameters
