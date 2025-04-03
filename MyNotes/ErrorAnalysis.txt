@@ -4,7 +4,7 @@ References:
     - 'Numerical Methods by Balaguruswamy' for details on each topic
     - https://www.youtube.com/playlist?list=PLnWQ_pnPVzmJnp794rQXIcwJIjwy7Nb2U 
 ----------------------------------------------------------------------------------
-3. ErrorAnalysis: Convergence&Accuracy? MachineEpsilon; RoundOffVsTruncation; CatastrophicCancellation
+3. ErrorAnalysis: Convergence_Stability_Accuracy? MachineEpsilon; RoundOffVsTruncation; CatastrophicCancellation
 2. StabilityOfAlgorithm
 1. TypesOfErrors 
 ----------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ References:
         (a) Root finding problem, f(x) = 0: k = (deltaY/Y)/(deltaX/X) 
         (b) Linear algebra problems, [A]{x} = {b}: k = ||A||.||A^-1||  
 
-3. ERROR ANALYSIS: 
+3. ERROR ANALYSIS: (a)Convergence (b)Stability (c)Accuracy 
     * Establish the accuracy of the algorithm:
         1. Does the algorithm converge? Convergence to a single value with increase in number of iterations.
         2. Stability of the algorithm
