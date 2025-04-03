@@ -25,7 +25,7 @@ References:
 
 
 ----------------------------------------------------------------------------------
-* ERRORS: 
+1. ERRORS: 
     - Introduced at every step of numerical computing; Inevitable; Identify the sources & handle the errors.
     - Types of Errors: 
         - Measurement errors: Measurements of quantity; Every measurement has an associated error, hence represented as range.  
@@ -36,7 +36,7 @@ References:
         - Propagation of errors: Numerical process; Accumulation of different errors in the final result.
         - Human errors: Human in the loop; Blunders.
 
-* STABILITY OF AN ALGORITHM:
+2. STABILITY OF AN ALGORITHM:
     - Sensitivity of algorithm: Change in output with change in input; Unstable if small changes in input lead to large changes in output.
     - Condition number (k): Quantifies the sensitivity of the algorithm.
         - k = RelativeChange(output) / RelativeChange(input)
