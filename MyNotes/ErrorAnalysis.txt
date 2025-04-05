@@ -30,7 +30,7 @@ References:
 ----------------------------------------------------------------------------------
 Key Takeaways
 ----------------------------------------------------------------------------------
-ERROR ANALYSIS: [CSA in different domains of inputs] (a)Convergence (b)Stability (c)Accuracy 
+ERROR ANALYSIS: [CSA for every input in all domain] (a)Convergence (b)Stability (c)Accuracy 
     1. Convergence: (Results vs nIterations) graph; Code the convergence criteria with a nMaxIterations
     2. Stability: Calculate the 'ConditionNumber' of the algorithm 
     3. Accuracy: Residual check; Analytical approaches; RelativeError vs nIterations to understand truncation & roundoff errors.
