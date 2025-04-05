@@ -4,7 +4,7 @@ References:
     - 'Numerical Methods by Balaguruswamy' for details on each topic
     - https://www.youtube.com/playlist?list=PLnWQ_pnPVzmJnp794rQXIcwJIjwy7Nb2U 
 ----------------------------------------------------------------------------------
-* KeyTakeaways: ErrorAnalysis: Convergence_Stability_Accuracy (CSA)? TipsForLeastError?
+* KeyTakeaways: ErrorAnalysis: Convergence_Stability_Accuracy+Optimize (CSA+O)? TipsForLeastError?
 * Concepts: TypesOfErrors; StabilityOfAlgorithm; MachineEpsilon; RoundOffVsTruncation; *CatastrophicCancellation*
 ----------------------------------------------------------------------------------
 
@@ -31,9 +31,11 @@ References:
 Key Takeaways
 ----------------------------------------------------------------------------------
 ERROR ANALYSIS: [CSA for every input in all domain] (a)Convergence (b)Stability (c)Accuracy 
-    1. Convergence: (Results vs nIterations) graph; Code the convergence criteria with a nMaxIterations
+    1. Convergence: (Results vs nIterations) graph; 
     2. Stability: Calculate the 'ConditionNumber' of the algorithm 
     3. Accuracy: Residual check; Analytical approaches; RelativeError vs nIterations to understand truncation & roundoff errors.
+    4. Optimization: Code the convergence criteria with nMaxIterations
+
 Tips to reduce the total error: 
     - Increasing the significant digits of the computer; double precision instead of float 
     - Minimize the number of arithmetic operations 
